@@ -1,0 +1,10 @@
+(load "ex1.37.scm")
+
+(define (e n)
+  (+ (cont-frac (lambda (i)
+                  (if (= (remainder i 3) 2)
+                      (* (/ (+ i 1) 3) 2)
+                      1))
+                (lambda (i) 1.0)
+                n)
+     2))

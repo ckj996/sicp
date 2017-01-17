@@ -18,4 +18,5 @@
         (else (remainder (* (expmod base (- exp 1) m) base) m))))
 
 (define (prime? n)
-  (fast-prime? n 12))
+  (and (> n 1)
+       (fast-prime? n 12)))
