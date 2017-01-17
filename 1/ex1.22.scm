@@ -1,12 +1,14 @@
 (load "ex1.21.scm")
 
+(define (next-odd n)
+  (if (even? n)
+      (+ n 1)
+      (+ n 2)))
+
+(define (prime? n)
+  (= (smallest-devisor n) n))
+
 (define (search-for-primes n)
-  (define (prime? n)
-    (= (smallest-devisor n) n))
-  (define (next-odd n)
-    (if (even? n)
-        (+ n 1)
-        (+ n 2)))
   (define (report-time elapsed-time)
     (newline)
     (display "time: ")
