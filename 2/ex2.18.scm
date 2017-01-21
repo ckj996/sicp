@@ -1,0 +1,8 @@
+(define (reverse items)
+  (define (iter items-left result)
+    (if (null? items-left)
+        '()
+        (iter (cdr items-left)
+              (cons (car items-left)
+                    result))))
+  (iter items '()))
