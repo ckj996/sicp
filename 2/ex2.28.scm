@@ -1,0 +1,8 @@
+(define (fringe tree)
+  (if (null? tree)
+      '()
+      (let ((first-branch (car tree)))
+        ((if (pair? first-branch)
+             (lambda (x) (append (fringe first-branch) x))
+             (lambda (x) (cons first-branch x)))
+         (fringe (cdr tree))))))

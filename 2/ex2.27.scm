@@ -1,0 +1,10 @@
+(define (deep-reverse items)
+  (define (iter items-left result)
+    (if (null? items-left)
+        result
+        (iter (cdr items-left)
+              (cons (if (pair? (car items-left))
+                        (deep-reverse (car items-left))
+                        (car items-left))
+                    result))))
+  (iter items '()))
