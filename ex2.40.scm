@@ -1,12 +1,5 @@
-(define (enumerate-interval low high)
-  (if (> low high)
-      '()
-      (cons low (enumerate-interval (+ low 1) high))))
-
-(define (flatmap func seqs)
-  (fold-right append
-              '()
-              (map func seqs)))
+(load "enumerate-interval.scm")
+(load "flatmap.scm")
 
 (define (unique-pairs n)
   (flatmap (lambda (i)
