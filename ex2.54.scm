@@ -5,6 +5,6 @@
            (pair? x)
            (equal? (car item) (car x))
            (equal? (cdr item) (cdr x)))
-      (and (not (or (pair? item)
-                    (pair? x)))
+      (and (not (pair? item))
+           (not (pair? x))
            (eq? item x))))
