@@ -12,7 +12,7 @@
        (= (numer x) 0)))
 
 ;; (install-complex-package)
-(put 'equ? '(complex complex)
-     (lambda (x y)
+(put '=zero? '(complex)
+     (lambda (x)
        (and (= (real-part x) 0)
             (= (imag-part x) 0))))
