@@ -17,12 +17,17 @@
                   ((eq? m 'deposit) deposit)
                   (else (error "Unknown request -- MAKE-ACCOUNT"
                                m))))
-          (lambda (x)
+          (begin
             (set! err-count (+ err-count 1))
             (if (>= err-count max-err)
-                (call-the-cops)
-                "Incorrect password"))))
+                call-the-cops
+                wrong-password-message))))
     dispatch))
 
-(define (call-the-cops)
-  "Calling the cops")
+(define wrong-password-message
+  (lambda (x)
+    "Incorrect password"))
+
+(define call-the-cops
+  (lambda (x)
+    "Calling the cops"))
