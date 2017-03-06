@@ -12,7 +12,8 @@
       (define (iter keys table)
         (if (null? keys)
             (cdr table)
-            (let ((record (assoc (car keys) (cdr table))))
+            (let ((record (and (list? table)
+                               (assoc (car keys) (cdr table)))))
               (if record
                   (iter (cdr keys) record)
                   false))))
@@ -28,10 +29,9 @@
               (let ((record (assoc current-key (cdr table))))
                 (if record
                     (set-cdr! record (cdr (iter keys-remain record)))
-                    (let ((subtable (list current-key)))
-                      (set-cdr! table (cons (iter keys-remain
-                                                  subtable)
-                                            (cdr table))))))))
+                    (set-cdr! table (cons (iter keys-remain
+                                                (list current-key))
+                                          (cdr table)))))))
         table)
       (iter keys local-table))
 
