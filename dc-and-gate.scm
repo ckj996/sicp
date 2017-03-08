@@ -1,0 +1,10 @@
+(define (and-gate a1 a2 output)
+  (define (and-gate-input)
+    (let ((new-value (logical-and (get-signal a1)
+                                  (get-signal a2))))
+      (after-delay and-gate-delay
+                   (lambda ()
+                     (set-signal! output new-value)))))
+  (add-action! a1 and-gate-input)
+  (add-action! a2 and-gate-input)
+  '())
