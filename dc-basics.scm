@@ -1,0 +1,7 @@
+(load "dc-wire.scm")
+(load "dc-after-delay.scm")
+(load "dc-logical-operations.scm")
+(load "dc-inverter.scm")
+(load "dc-and-gate.scm")
+(load "ex3.28-dc-or-gate.scm")
+(load "dc-probe.scm")

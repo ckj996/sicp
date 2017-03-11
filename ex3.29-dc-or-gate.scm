@@ -11,4 +11,4 @@
     (inverter a-out output)
     'ok))
 
-;; or-gate-delay = 3 * inverter-delay + and-gate-delay
+;; or-gate-delay = 2 * inverter-delay + and-gate-delay
