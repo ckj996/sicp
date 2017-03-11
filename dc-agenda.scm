@@ -1,6 +1,7 @@
 (define (make-agenda)
 
-  (let ((agenda '()))
+  (let ((agenda '())
+        (current-time 0))
 
     (define (get-time item) (car item))
     (define (get-action item) (cdr item))
@@ -28,11 +29,10 @@
       (cond ((eq? m 'empty-agenda?)
              (null? agenda))
             ((eq? m 'first-item)
+             (set! current-time (get-time (car agenda)))
              (get-action (car agenda)))
             ((eq? m 'current-time)
-             (if (null? agenda)
-                 0
-                 (get-time (car agenda))))
+             current-time)
             ((eq? m 'add-to-agenda!)
              add-to-agenda!)
             ((eq? m 'remove-first-item!)
