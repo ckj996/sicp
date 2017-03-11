@@ -1,7 +1,7 @@
 (define (or-gate o1 o2 output)
   (define (or-gate-input)
     (let ((new-value (logical-or (get-signal o1)
-                                  (get-signal o2))))
+                                 (get-signal o2))))
       (after-delay or-gate-delay
                    (lambda ()
                      (set-signal! output new-value)))))

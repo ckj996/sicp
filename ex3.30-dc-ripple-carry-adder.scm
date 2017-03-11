@@ -3,8 +3,8 @@
 (define (ripple-carry-adder list-A list-B list-S C)
   (define (iter A B S C)
     (if (or (null? A)
-             (null? B)
-             (null? S))
+            (null? B)
+            (null? S))
         'ok
         (let ((Ak (car A))
               (Bk (car B))
