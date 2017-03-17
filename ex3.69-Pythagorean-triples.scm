@@ -1,0 +1,11 @@
+(load "stream-integers.scm")
+(load "ex3.69-triples.scm")
+
+(define p (stream-filter (lambda (triple)
+                           (let ((x (car triple))
+                                 (y (cadr triple))
+                                 (z (caddr triple)))
+                             (= (+ (square x)
+                                   (square y))
+                                (square z))))
+                         (triples integers integers integers)))
