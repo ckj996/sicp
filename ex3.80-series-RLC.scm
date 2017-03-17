@@ -1,0 +1,13 @@
+(load "integral.scm")
+(load "scale-stream.scm")
+(load "add-streams.scm")
+
+(define (series-RLC R L C dt)
+  (define (vC-iL vC0 iL0)
+    (define vC (integral (delay dvC) vC0 dt))
+    (define iL (integral (delay diL) iL0 dt))
+    (define dvC (scale-stream iL (- (/ C))))
+    (define diL (add-streams (scale-stream vC (/ L))
+                             (scale-stream iL (- (/ R L)))))
+    (stream-map cons vC iL))
+  vC-iL)
