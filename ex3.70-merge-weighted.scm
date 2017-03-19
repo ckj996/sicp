@@ -1,6 +1,6 @@
 (define (merge-weighted s t weight)
-  (cond ((null? s) t)
-        ((null? t) s)
+  (cond ((stream-null? s) t)
+        ((stream-null? t) s)
         (else
          (let ((scar (stream-car s))
                (tcar (stream-car t)))
