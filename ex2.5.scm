@@ -1,10 +1,6 @@
 (define (cons x y)
-  (define (pow a n)
-    (cond ((= n 0) 1)
-          ((odd? n) (* a (pow a (- n 1))))
-          (else (square (pow a (/ n 2))))))
-  (* (pow 2 x)
-     (pow 3 y)))
+  (* (expt 2 x)
+     (expt 3 y)))
 
 (define (car z)
   (define (iter z x)

@@ -1,16 +1,12 @@
 ;; calculate offset of (x y) in stream (pairs integers integers)
 
 (define (offset x y)
-  (define (pow a n)
-    (cond ((= n 0) 1)
-          ((odd? n) (* a (pow a (- n 1))))
-          (else (square (pow a (/ n 2))))))
-  (+ (- (pow 2 x) 2)
+  (+ (- (expt 2 x) 2)
      (if (= x y)
          0
-         (+ (pow 2 (- x 1))
+         (+ (expt 2 (- x 1))
             (* (- y x 1)
-               (pow 2 x))))))
+               (expt 2 x))))))
 
 (load "stream-pairs.scm")
 
