@@ -1,0 +1,15 @@
+(define (list-of-values-from-left exps env)
+  (if (no-operands? exps)
+      '()
+      ((lambda (first-result)
+         (cons first-result
+               (list-of-values (rest-operands exps) env)))
+       (eval (first-operand exps) env))))
+
+(define (list-of-values-from-right exps env)
+  (if (no-operands? exps)
+      '()
+      ((lambda (rest-result)
+         (cons (eval (first-operand exps) env)
+               rest-result))
+       (list-of-values (rest-operands exps) env))))
