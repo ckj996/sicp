@@ -110,7 +110,7 @@
 
 (define (make-begin seq) (cons 'begin seq))
 
-;; operands
+;; application
 ;; (operator operands)
 ;;   operator: a symbol
 ;;   operands: list of expressions
