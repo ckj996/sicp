@@ -1,19 +1,27 @@
 ;; let
-;; (let pairs body)
-;;   pairs: list of (var exp)
+;; (let bindings body)
+;;   bindings: list of (var exp)
 ;;   body: list of expressions
 (define (let? exp) (tagged-list? 'let))
 
-(define (let-pairs exp) (cadr exp))
+(define (let-bindings exp) (cadr exp))
 (define (let-body exp) (cddr exp))
 
-(define (pair-var pair) (car pair))
-(define (pair-exp pair) (cadr pair))
+(define (binding-var binding) (car binding))
+(define (binding-exp binding) (cadr binding))
+
+(define (let-vars exp)
+  (map binding-var (let-bindings exp)))
+(define (let-exps exp)
+  (map binding-exp (let-bindings exp)))
 
 (define (let->lambda exp)
-  (make-lambda (map pair-var (let-pairs exp))
+  (make-lambda (let-vars exp)
                (let-body exp)))
 
 (define (let->combination exp)
-  (list (let->lambda exp)
-              (map pair-exp (let-pairs exp))))
+  (cons (let->lambda exp)
+        (let-exps exp)))
+
+(define (make-let bindings body)
+  (cons 'let (cons bindings body)))

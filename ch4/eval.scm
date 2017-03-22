@@ -15,6 +15,7 @@
         ((and? exp) (eval (and->if exp) env))
         ((or? exp) (eval (or->if exp) env))
         ((let? exp) (eval (let->combination exp) env))
+        ((let*? exp) (eval (let*->nested-lets exp) env))
         ((application? exp)
          (apply (eval (operator exp) env)
                 (list-of-values (operands exp) env)))

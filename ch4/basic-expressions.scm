@@ -57,6 +57,9 @@
       (make-lambda (cdadr exp)
                    (cddr exp))))
 
+(define (make-define variable value)
+  (list 'define variable value))
+
 ;; lambda
 ;; (lambda parameters body)
 ;;   parameters: list of symbols
