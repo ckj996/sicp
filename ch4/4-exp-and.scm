@@ -1,7 +1,7 @@
 ;; and
 ;; (and exps)
 ;; Lazy Evaluation, from left to right
-(define (and? exp) (tagged-list? 'and))
+(define (and? exp) (tagged-list? exp 'and))
 
 (define (and-exps) (cdr exp))
 

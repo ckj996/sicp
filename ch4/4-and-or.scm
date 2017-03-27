@@ -1,5 +1,5 @@
-(define (and? exp) (tagged-list? 'and))
-(define (or? exp) (tagged-list? 'or))
+(define (and? exp) (tagged-list? exp 'and))
+(define (or? exp) (tagged-list? exp 'or))
 
 (define (and-exps exp) (cdr exp))
 (define (or-exps exp) (cdr exp))

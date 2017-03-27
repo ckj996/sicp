@@ -2,7 +2,7 @@
 ;; (let bindings body)
 ;;   bindings: list of (var exp)
 ;;   body: list of expressions
-(define (let? exp) (tagged-list? 'let))
+(define (let? exp) (tagged-list? exp 'let))
 
 (define (let-bindings exp) (cadr exp))
 (define (let-body exp) (cddr exp))

@@ -3,7 +3,7 @@
 ;;   name: a variable
 ;;   bindings: list of (var exp)
 ;;   body: list of expressions
-(define (let? exp) (tagged-list? 'let))
+(define (let? exp) (tagged-list? exp 'let))
 
 (define (named-let? exp) (variable? (cadr exp)))
 
