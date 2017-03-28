@@ -19,8 +19,8 @@
   (let ((proc (get type)))
     (if proc
         (proc exp env)
-        (apply (eval (operator exp) env)
-               (list-of-values (operands exp) env)))))
+        (prim-apply (eval (operator exp) env)
+                    (list-of-values (operands exp) env)))))
 
 (put 'self-evaluating (lambda (exp env) exp))
 (put 'variable lookup-variable-value)

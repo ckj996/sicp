@@ -17,7 +17,7 @@
         ((let? exp) (eval (let->combination exp) env))
         ((let*? exp) (eval (let*->nested-lets exp) env))
         ((application? exp)
-         (apply (eval (operator exp) env)
-                (list-of-values (operands exp) env)))
+         (prim-apply (eval (operator exp) env)
+                     (list-of-values (operands exp) env)))
         (else
          (error "Unknown expression type -- EVAL" exp))))
